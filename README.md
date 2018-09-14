@@ -1,1 +1,1 @@
-# i3config
+# My config files for i3
