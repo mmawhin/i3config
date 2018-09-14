@@ -1,0 +1,112 @@
+background no
+#font Sans:size=8
+xftfont Dejavu Sans Mono Book:size=9
+use_xft yes
+xftalpha 0.9
+update_interval 3.0
+total_run_times 0
+
+own_window yes
+own_window_argb_visual yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+double_buffer yes
+minimum_size 320 5
+maximum_width 320
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color cornflowerblue
+default_shade_color black
+default_outline_color green
+alignment top_right
+gap_x 12
+gap_y 35
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+uppercase yes # set to yes if you want all text to be in uppercase
+
+TEXT
+${color #0077ff}SYSTEM ${hr 1}${color}
+
+${color #0077ff}Hostname:${color} $alignr$nodename
+${color #0077ff}Architecture:${color} $alignr x86_64
+${color #0077ff}Kernel:${color} $alignr$kernel
+${color #0077ff}Uptime:${color} $alignr$uptime
+${color #0077ff}Temp:${color} ${alignr}${acpitemp}C
+
+${color #0077ff}CPU:${color} ${alignr}${freq} MHz
+${color #0077ff}Processes:${color} ${alignr}$processes ($running_processes running)
+${color #0077ff}Load:${color} ${alignr}$loadavg
+
+${color #0077ff}CPU Graph${color}
+${cpugraph cpu0 60,320 104E8B 0077ff}
+
+${color #0077ff}CPU1${color} ${alignr}${cpu cpu1}%
+${cpubar 6 cpu1}
+${color #0077ff}CPU2${color} ${alignr}${cpu cpu2}%
+${cpubar 6 cpu2}
+${color #0077ff}CPU3${color} ${alignr}${cpu cpu3}%
+${cpubar 6 cpu3}
+${color #0077ff}CPU4${color} ${alignr}${cpu cpu4}%
+${cpubar 6 cpu4}
+${color #0077ff}CPU5${color} ${alignr}${cpu cpu5}%
+${cpubar 6 cpu5}
+${color #0077ff}CPU6${color} ${alignr}${cpu cpu6}%
+${cpubar 6 cpu6}
+${color #0077ff}CPU7${color} ${alignr}${cpu cpu7}%
+${cpubar 6 cpu7}
+${color #0077ff}CPU8${color} ${alignr}${cpu cpu8}%
+${cpubar 6 cpu8}
+
+${color #0077ff}Ram${color} ${alignr}$mem / $memmax ($memperc%)
+${membar 6}
+${color #0077ff}swap${color} ${alignr}$swap / $swapmax ($swapperc%)
+${swapbar 6}
+
+${color #0077ff}Highest CPU $alignr CPU% MEM% ${color} 
+${top name 1}$alignr${top cpu 1}${top mem 1}
+${top name 2}$alignr${top cpu 2}${top mem 2}
+${top name 3}$alignr${top cpu 3}${top mem 3}
+${top name 4}$alignr${top cpu 4}${top mem 4}
+${top name 5}$alignr${top cpu 5}${top mem 5}
+
+
+${color #0077ff}Highest MEM $alignr CPU% MEM% ${color} 
+${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+${top_mem name 4}$alignr${top_mem cpu 4}${top_mem mem 4}
+${top_mem name 5}$alignr${top_mem cpu 5}${top_mem mem 5}
+
+${color #0077ff}Filesystem ${hr 1}${color}
+
+${color #0077ff}Root: ${color} ${alignr}${fs_free /} / ${fs_size /}
+${fs_bar 6 /}
+${color #0077ff}Home: ${color} ${alignr}${fs_free /home} / ${fs_size /home}
+${fs_bar 6 /home}
+${color #0077ff}Data: ${color} ${alignr}${fs_free /home/data} / ${fs_size /home/data}
+${fs_bar 6 /home/data}
+
+${color #0077ff}NETWORK ${hr 1}${color}
+
+${color #0077ff}wlan0
+${color #0077ff}IP Address: ${color} ${alignr}${addr wlan0}
+${color #0077ff}Down ${color} ${downspeed wlan0} k/s ${alignr}${color #0077ff}Up ${color} ${upspeed wlan0} k/s
+${downspeedgraph wlan0 60,320 104E8B 0077ff} 
+${upspeedgraph wlan0 60,320 104E8B 0077ff}
+${color #0077ff}Total ${color} ${totaldown wlan0} ${alignr}${color #0077ff}Total ${color} ${totalup wlan0}
+
+${color #0077ff}eth0
+${color #0077ff}IP Address: ${color} ${alignr}${addr eth0}
+${color #0077ff}Down ${color} ${downspeed eth0} k/s ${alignr}${color #0077ff}Up ${color} ${upspeed eth0} k/s
+${downspeedgraph eth0 60,320 104E8B 0077ff} 
+${upspeedgraph eth0 60,320 104E8B 0077ff}
+${color #0077ff}Total ${color} ${totaldown eth0} ${alignr}${color #0077ff}Total ${color} ${totalup eth0}
+
+
